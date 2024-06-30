@@ -1,0 +1,144 @@
+*{
+    font-family: sans-serif;
+    margin: 0;
+}
+
+nav{
+    background-color: lightblue;
+    padding: 2em;
+}
+
+.navbar, .redes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+}
+
+ul{
+    list-style: none;
+}
+
+ul li a{
+    text-decoration: none;
+    padding: 2em;
+}
+
+.redes{
+    margin-top: 2em;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+}
+.cardCarrito{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+}
+
+.totales{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
+    margin: 2em;
+}
+
+#root{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.contenedorCarrito{
+    display: flex;
+    flex-direction: column;
+    width: 18%;
+    background-color: white;
+    position: absolute;
+    border: 0.5px black solid;
+    left: 80%;
+}
+
+.esconder{
+    visibility: hidden;
+}
+
+.botonComprar{
+    border-radius: 5px;
+    background-color: grey;
+    border: none;
+    padding: 0.5em;
+    cursor: pointer;
+}
+
+.botonComprar:hover{
+    background-color: lightskyblue;
+}
+
+.botonCarrito{
+    background-color: yellow;
+    padding: 5px;
+}
+
+.contenedorContadorCarrito{
+    position: relative;
+}
+
+.cantidadProductosCarrito{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    top: 80%;
+    left: 80%;
+    padding: 2px;
+}
+
+.imagenCarrito{
+    width: 50px;
+    height: 50px;
+}
+
+.cantidadProducto{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.cantidadUnidades{
+    margin: 2px;
+    width: 20%;
+    background-color: white;
+    border:black 0.5px solid;
+}
+
+.textoCarrito{
+    text-align: center;
+    margin: 0.5em;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.botonUp .botonDown {
+    padding: 1px;
+}
+
+.contenedorUnidades{
+    display: flex;
+    flex-direction: row;
+}
