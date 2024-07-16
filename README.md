@@ -1,4 +1,4 @@
 Tecnologías usadas: HTML | CSS | JavaScript
 
-Link to netlify:
+Proyecto subido a Netlify:
 https://master--carrito-de-compras-hernan.netlify.app/
