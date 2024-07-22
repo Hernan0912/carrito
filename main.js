@@ -55,6 +55,7 @@ function crearProducto(id, producto, img, precio,cantidad) {
     };
 
 }
+
 let carritoDeCompras = []
 
 for (const item in jsonData) { //Tomo los datos del json
@@ -85,17 +86,28 @@ const contenedorContadorCarrito = document.querySelector(".contenedorContadorCar
 contadorCarrito.classList.add("cantidadProductosCarrito")//Detalles esteticos
 let contador = 0;//Me va a servir para el contador de productos en el carrito
 
-carrito.innerHTML = `<p class="textoCarrito">No tienes productos seleccionados</p>`
-
 botonComprar.forEach(element => {
     element.addEventListener("click", () => {
         contenedorContadorCarrito.appendChild(contadorCarrito) //Agrego el contador del carrito en el html
-        carrito.innerHTML = `<p class="textoCarrito">Productos seleccionados: </p>`
+        carrito.innerHTML = `<p class="textoCarrito"> Productos seleccionados: </p>`
         llenarCarrito(element)
         imprimirCarrito()
         contadorCarrito.textContent = carritoDeCompras.length
-
     })
+})
+
+document.addEventListener("DOMContentLoaded", () => {
+    carritoDeCompras = JSON.parse(localStorage.getItem("carritoDeCompras")) || []
+
+    console.log("carritoDeCompras.length: ",carritoDeCompras.length)
+    if(carritoDeCompras.length == 0){
+        carrito.innerHTML = `<p class="textoCarrito"> No tienes productos seleccionados</p>`
+    }else{
+        carrito.innerHTML += `<p class="textoCarrito"> Productos seleccionados: </p>`
+        imprimirCarrito()
+        contenedorContadorCarrito.appendChild(contadorCarrito)
+        contadorCarrito.textContent = carritoDeCompras.length
+    }
 })
 
 function imprimirCarrito() {
@@ -108,6 +120,8 @@ function imprimirCarrito() {
     botonResta()
     total()
     eliminar()
+    console.log("carritoDeCompras: ",carritoDeCompras)
+    localStorage.setItem("carritoDeCompras",JSON.stringify(carritoDeCompras))
 }
 
 function eliminar(){
@@ -169,9 +183,9 @@ function eliminarElementoCarrito(borrar) {
         if (compra.id == borrar.id) {
             carritoDeCompras = carritoDeCompras.filter(item => item.id !== borrar.id);
             carrito.innerHTML = ``
-            carrito.innerHTML = `<p class="textoCarrito">Productos seleccionados: </p>`
+            carrito.innerHTML = `<p class="textoCarrito"> Productos seleccionados: </p>`
             imprimirCarrito()
-            if(carritoDeCompras.length>0){
+            if(carritoDeCompras.length > 0){
                 contadorCarrito.textContent = carritoDeCompras.length
             }else{
                 carrito.innerHTML = `<p class="textoCarrito">No tienes productos seleccionados</p>`
