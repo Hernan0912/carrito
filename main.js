@@ -99,7 +99,6 @@ botonComprar.forEach(element => {
 document.addEventListener("DOMContentLoaded", () => {
     carritoDeCompras = JSON.parse(localStorage.getItem("carritoDeCompras")) || []
 
-    console.log("carritoDeCompras.length: ",carritoDeCompras.length)
     if(carritoDeCompras.length == 0){
         carrito.innerHTML = `<p class="textoCarrito"> No tienes productos seleccionados</p>`
     }else{
@@ -120,7 +119,6 @@ function imprimirCarrito() {
     botonResta()
     total()
     eliminar()
-    console.log("carritoDeCompras: ",carritoDeCompras)
     localStorage.setItem("carritoDeCompras",JSON.stringify(carritoDeCompras))
 }
 
